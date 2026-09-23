@@ -39,7 +39,6 @@ for i, j in friendship_pairs:
     friendships[i].append(j)
     friendships[j].append(i)
 
-
 # Retorna a quantidade de amigos de um usuário.
 def number_of_friends(user):
     user_id = user["id"]
@@ -64,26 +63,5 @@ num_friends_by_id.sort(
     reverse=True
 )
 
-# Facilita a busca do nome de cada usuário pelo ID.
-user_names = {user["id"]: user["name"] for user in users}
-
-print("USUÁRIOS")
-for user in users:
-    print(f"- ID {user['id']}: {user['name']}")
-
-print("\nAMIZADES")
-for user_id, friend_ids in friendships.items():
-    friends = ", ".join(user_names[friend_id] for friend_id in friend_ids)
-    print(f"- {user_names[user_id]}: {friends}")
-
-print("\nESTATÍSTICAS")
-print(f"- Usuários cadastrados: {num_users}")
-print(f"- Amizades registradas: {len(friendship_pairs)}")
-print(f"- Total de conexões: {total_connections}")
-print(f"- Média de amigos por usuário: {avg_connections:.1f}")
-
-print("\nUSUÁRIOS COM MAIS AMIZADES")
-for user_id, friend_count in num_friends_by_id:
-    print(f"- {user_names[user_id]}: {friend_count} amigos")
 
 
